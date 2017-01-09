@@ -1,24 +1,8 @@
-# ES6 Boilerplate
-
-Just change the name of the library in the package.json. That's it. 
-The package name variable will be the entry point for the library in browser case. 
-You can change this behaviour here tools/webpack.config.base.js the library field.
-Develop and enjoy.
-
-### Write a library in ES6
-
--   webpack for bundling, exporting in UMD (with the name of the package in browser case), support for process.env in source code
--   babel, of course
--   eslint (airbnb + valid-jsdoc)
--   jasmine for test with mocha reporter
--   documentation automagically generated
-
 ### Commands
 
--   git clone <this repo> && rm .git && git init
--   npm run build // generate dist/&lt;package.name>.js, dist/&lt;package.name>.min.js, dist/&lt;package.name>.min.js.map 
 -   npm run test
 -   npm run test:watch    // run tests while typing
+-   npm run build
 -   npm run documentation // generate docs folder with .html, append docs to the readme.md
 
 ### Release a new version
@@ -98,3 +82,13 @@ extend: this function merge two objects in a new one with the properties of both
 -   `o2` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** \-
 
 Returns **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** a brand new object results of the merging
+
+## getType
+
+getType
+
+**Parameters**
+
+-   `obj`  
+
+Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the type of the object. date for date array etc
