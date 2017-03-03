@@ -14,13 +14,45 @@ export function Iterator(array) {
   let nextIndex = 0;
 
   return {
-    next: (reset) => {
+    next: reset => {
       if (reset) { nextIndex = 0; }
       return nextIndex < array.length ?
           { value: array[nextIndex++], done: false } :
           { done: true };
     }
   };
+}
+
+/**
+ * extend: this function merge two objects in a new one with the properties of both
+ *
+ * @param {Object} o1 -
+ * @param {Object} o2 -
+ * @returns {Object} a brand new object results of the merging
+ * */
+export function extend(o1, o2) {
+
+  const isObject = Object.prototype.toString.apply({});
+  const newObject = {};
+  if ((o1.toString() !== isObject) || (o2.toString() !== isObject)) {
+    throw new Error('Cannot merge different type');
+  }
+  for (const k in o1) {
+    if (o1.hasOwnProperty(k)) {
+      newObject[k] = o1[k];
+    }
+  }
+
+  for (const j in o2) {
+    if (o2.hasOwnProperty(j)) {
+      if (Array.isArray(o1[j]) && Array.isArray(o2[j])) {
+        newObject[j] = o1[j].concat(o2[j]);
+        continue;
+      }
+      newObject[j] = o2[j];
+    }
+  }
+  return newObject;
 }
 
 /**
@@ -41,9 +73,9 @@ export function dequeryfy(_url) {
   var keyvalue = query.split('&');
 
   return keyvalue.reduce((newObj, _keyvalue) => {
-    var splitted = _keyvalue.split('=');
-    var key = decodeURIComponent(splitted[0]);
-    var value = decodeURIComponent(splitted[1]);
+    const splitted = _keyvalue.split('=');
+    const key = decodeURIComponent(splitted[0]);
+    const value = decodeURIComponent(splitted[1]);
     newObj[key] = value;
     return newObj;
   }, {});
@@ -56,15 +88,15 @@ export function dequeryfy(_url) {
  * var API = "http://jsonplaceholder.typicode.com/comments"
  * var url = queryfy(API, {postId:1});
  * // url will be "http://jsonplaceholder.typicode.com/comments?postId=1"
- * @param {Strinq} _api
- * @param {Object} params - a key value object: will be append to <api>?key=value&key2=value2
+ * @param {Strinq} _api - the endpoint
+ * @param {Object} query - a key value object: will be append to <api>?key=value&key2=value2
  * @returns {String} the string composed
  * */
 export function queryfy(_api, query) {
-  var previousQuery = dequeryfy(_api);
-  var qs = '',
-    finalQuery,
-    api = _api.slice(0);
+  const previousQuery = dequeryfy(_api);
+  let qs = '';
+  let finalQuery;
+  let api = _api.slice(0);
 
   if (api.indexOf('?') > -1) {
     api = api.slice(0, api.indexOf('?'));
@@ -73,11 +105,13 @@ export function queryfy(_api, query) {
   api += '?';
   finalQuery = extend(previousQuery, query);
 
-  for (var key in finalQuery) {
-    qs += encodeURIComponent(key);
-    // if a value is null or undefined keep the key without value
-    if (finalQuery[key]) { qs += '=' + encodeURIComponent(finalQuery[key]); }
-    qs += '&';
+  for (const key in finalQuery) {
+    if (finalQuery.hasOwnProperty(key)) {
+      qs += encodeURIComponent(key);
+      // if a value is null or undefined keep the key without value
+      if (finalQuery[key]) { qs += '=' + encodeURIComponent(finalQuery[key]); }
+      qs += '&';
+    }
   }
 
   if (qs.length > 0) {
@@ -87,47 +121,15 @@ export function queryfy(_api, query) {
 }
 
 /**
- * extend: this function merge two objects in a new one with the properties of both
- *
- * @param {Object} o1 -
- * @param {Object} o2 -
- * @returns {Object} a brand new object results of the merging
- * */
-export function extend(o1, o2) {
-
-  var isObject = Object.prototype.toString.apply({});
-  if ((o1.toString() !== isObject) || (o2.toString() !== isObject)) {
-    throw new Error('Cannot merge different type');
-  }
-  var newObject = {};
-  for (var k in o1) {
-    if (o1.hasOwnProperty(k)) {
-        newObject[k] = o1[k];
-      }
-  }
-
-  for (var j in o2) {
-    if (o2.hasOwnProperty(j)) {
-        if (Array.isArray(o1[j]) && Array.isArray(o2[j])) {
-          newObject[j] = o1[j].concat(o2[j]);
-          continue;
-        }
-        newObject[j] = o2[j];
-      }
-  }
-  return newObject;
-}
-
-/**
  * Merge n objects
  * @param {...Object} N object to merge together
  * @returns {Object}
  */
 export function merge() {
   const temp = {};
-  let objects = [].slice.call(arguments);
+  const objects = [].slice.call(arguments);
   for (let i = 0; i < objects.length; i++) {
-    for (let key in objects[i]) {
+    for (const key in objects[i]) {
       if (objects[i].hasOwnProperty(key)) {
         temp[key] = objects[i][key];
       }
@@ -149,7 +151,8 @@ export function memoize(fn) {
     if (key in cache) {
       return cache[key];
     }
-    return cache[key] = fn.apply(this, arguments);
+    cache[key] = fn.apply(this, arguments);
+    return cache[key];
   };
 }
 
@@ -193,8 +196,8 @@ export function JSONPRequest(url, timeout = 3000) {
     self.scriptTag.async = true;
 
     self.prom = new Promise((resolve, reject) => {
-      let functionName = `__jsonpHandler_${ts}`;
-      window[functionName] = function (data) {
+      const functionName = `__jsonpHandler_${ts}`;
+      window[functionName] = function handler(data) {
         self.called = true;
         resolve(data);
         self.scriptTag.parentElement.removeChild(self.scriptTag);
