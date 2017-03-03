@@ -15,7 +15,7 @@
     "clean": "rimraf dist build docs",
     "lint": "eslint src",
     "preversion": "npm run test",
-    "version": "npm run build && npm run gen:docs",
+    "version": "npm run build && npm run gen:docs && git add -fA src/ dist/ docs/",
     "test": "karma start --single-run --no-auto-watch karma.config.js",
     "test:watch": "karma start karma.config.js",
     "documentation": "npm run gen:docs && npm run gen:readme",
