@@ -35,25 +35,16 @@ it.next(true).value === "paperino" //false because with true you can reset it!
 
 Returns **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** an iterator-like object
 
-## module:src/modules/Utils.composeApiString
+## extend
 
-A function to compose query string
+extend: this function merge two objects in a new one with the properties of both
 
 **Parameters**
 
--   `_api` **Strinq** 
--   `params` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** a key value object: will be append to <api>?key=value&key2=value2
--   `query`  
+-   `o1` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** \-
+-   `o2` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** \-
 
-**Examples**
-
-```javascript
-var API = "http://jsonplaceholder.typicode.com/comments"
-var url = composeApiString(API, {postId:1});
-// url will be "http://jsonplaceholder.typicode.com/comments?postId=1"
-```
-
-Returns **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the string composed
+Returns **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** a brand new object results of the merging
 
 ## dequeryfy
 
@@ -72,16 +63,44 @@ var obj = dequerify(url); //obj is {"postId":"1"}
 
 Returns **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** the object with key-value pairs, empty if no querystring is present
 
-## extend
+## queryfy
 
-extend: this function merge two objects in a new one with the properties of both
+A function to compose query string
 
 **Parameters**
 
--   `o1` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** \-
--   `o2` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** \-
+-   `_api` **Strinq** the endpoint
+-   `query` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** a key value object: will be append to <api>?key=value&key2=value2
 
-Returns **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** a brand new object results of the merging
+**Examples**
+
+```javascript
+var API = "http://jsonplaceholder.typicode.com/comments"
+var url = queryfy(API, {postId:1});
+// url will be "http://jsonplaceholder.typicode.com/comments?postId=1"
+```
+
+Returns **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the string composed
+
+## merge
+
+Merge n objects
+
+**Parameters**
+
+-   `N` **...[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** object to merge together
+
+Returns **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+
+## memoize
+
+Simple memoization function
+
+**Parameters**
+
+-   `fn` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+
+Returns **any** what the real function returns
 
 ## getType
 
@@ -92,3 +111,25 @@ getType
 -   `obj`  
 
 Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the type of the object. date for date array etc
+
+## JSONPRequest
+
+Make a jsonp request, remember only GET
+The function create a tag script and append a callback param in querystring.
+The promise will be reject after 3s if the url fail to respond
+
+**Parameters**
+
+-   `url` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the url with querystring but without &callback at the end or &function
+-   `timeout` **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)?= 3000** ms range for the response
+
+**Examples**
+
+```javascript
+<pre>
+request = new JSONPRequest("http://www.someapi.com/asd?somequery=1");
+request.then((data) => {});
+</pre>
+```
+
+Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;([Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) \| [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String))>** 
