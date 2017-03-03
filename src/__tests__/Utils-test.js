@@ -1,6 +1,6 @@
-import { queryfy, dequeryfy, extend } from '../main';
+import { queryfy, dequeryfy, extend, merge } from '../main';
 
-describe('Utils tests', () => {
+describe('Utils tests', function() {
 
     beforeEach(() => {
     
@@ -10,12 +10,12 @@ describe('Utils tests', () => {
     
     });
     
-    it('Test queryfy', () => {
+    it('Test queryfy', function() {
         var result = queryfy('', { a: 'b b', 'c': 'a' });
         expect(result).toBe('?a=b%20b&c=a');
     });
     
-    it('Queryfy should work with a key with null value', () => {
+    it('Queryfy should work with a key with null value', function() {
         var result = queryfy('', { a: 'b b', 'c': null });
         expect(result).toBe('?a=b%20b&c');
     });
@@ -50,7 +50,7 @@ describe('Utils tests', () => {
         expect(result).toBe('?a=b%20b&c');
     });
 
-    it('Test queryfy should not modify params passed by reference', () => {
+    it('Test queryfy should not modify params passed by reference', function() {
         var api = 'http://pippo.com/';
         var result = queryfy(api, { a: 'b b', 'c': 5 });
         expect(result).toBe('http://pippo.com/?a=b%20b&c=5');
@@ -69,4 +69,12 @@ describe('Utils tests', () => {
         }).toThrow(new Error('Cannot merge different type'));
     });
 
+    it('Test merge function', function(){
+        var merged = merge({ a: 1, b: 2, c: 3 }, { c: 4 });        
+    });
+
+    it('Test merge function 2', function(){
+        var merged = merge({ a: 1, b: 2, c: 3 }, {});
+        expect(merged).toEqual({ a: 1, b: 2, c: 3 });
+    });
 });
