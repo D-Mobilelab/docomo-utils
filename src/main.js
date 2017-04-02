@@ -216,3 +216,79 @@ export function JSONPRequest(url, timeout = 3000) {
     window.document.getElementsByTagName('head')[0].appendChild(self.scriptTag);
   }
 }
+
+/**
+ * Debounce. Wait ms to execute a function
+ * @param {Function} fn - the function to be wrapped
+ * @param {Number} ms - the number of ms to wait
+ * @param {Boolean} immediate - execute immediate and wait ms. If false only the last call
+ * @returns {Function} returns the function decorated
+ */
+function debounce(fn, ms, immediate){
+  var timeoutID;
+  var theFn;
+  return function() {
+   var context = this, args = [].slice.call(arguments);
+   theFn = function(){
+    timeoutID = null;
+    if (!immediate) return fn.apply(context, args);
+   }
+   var callNow = immediate && !timeoutID;
+   clearTimeout(timeoutID);
+   timeoutID = setTimeout(theFn, ms);
+   if (callNow) return fn.apply(context, args);
+  }
+}
+
+/**
+ * Throttle. Useful for resize event or scroll
+ * @param {Function} fn - the function to be wrapped
+ * @param {Number} limit - only x call for ms
+ * @returns {Function} returns the function decorated
+ */
+function throttle(fn, limit) {
+  var wait = false;
+  return function() {
+    var context = this, args = [].slice.call(arguments);;
+    if (!wait) {
+      var toReturn = fn.apply(context, args);
+      wait = true;
+      setTimeout(function() {
+        wait = false;
+      }, limit);
+      return toReturn;
+    }
+  }
+}
+
+/**
+ * Returns true if the first array is
+ * contained in the second one.
+ * @example arrayContains([1,2,3] [4,5,6,1,2,3]) // true
+ * Works even with array of objects and string
+ * @param {Array|String} first
+ * @param {Array|String} second
+ * @returns {Boolean}
+ */
+function arrayContains(first, second) {
+  if(first.length > second.length) {
+    return false;
+  }
+
+  var savedK = 0, count = 0;
+  for(var i = 0; i < first.length; i++) {
+    for(var k = savedK; k < second.length; k++) {
+
+      var firstObject = typeof first[i] === 'object' ? JSON.stringify(first[i]) : first[i];
+      var secondObject = typeof second[k] === 'object' ? JSON.stringify(second[k]) : second[k];
+      if(firstObject === secondObject){
+        savedK = k + 1;
+        count += 1
+        break;
+      } else {
+        count = 0;
+      }
+    }
+  }
+  return count === first.length;
+}
