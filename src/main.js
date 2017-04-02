@@ -224,7 +224,7 @@ export function JSONPRequest(url, timeout = 3000) {
  * @param {Boolean} immediate - execute immediate and wait ms. If false only the last call
  * @returns {Function} returns the function decorated
  */
-function debounce(fn, ms, immediate){
+export function debounce(fn, ms = 300, immediate){
   var timeoutID;
   var theFn;
   return function() {
@@ -246,7 +246,7 @@ function debounce(fn, ms, immediate){
  * @param {Number} limit - only x call for ms
  * @returns {Function} returns the function decorated
  */
-function throttle(fn, limit) {
+export function throttle(fn, limit) {
   var wait = false;
   return function() {
     var context = this, args = [].slice.call(arguments);;
@@ -270,7 +270,7 @@ function throttle(fn, limit) {
  * @param {Array|String} second
  * @returns {Boolean}
  */
-function arrayContains(first, second) {
+export function arrayContains(first, second) {
   if(first.length > second.length) {
     return false;
   }
@@ -292,3 +292,5 @@ function arrayContains(first, second) {
   }
   return count === first.length;
 }
+
+export default { Iterator, debounce, throttle, JSONPRequest, getType, memoize, merge, extend, queryfy, dequeryfy };
