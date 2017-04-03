@@ -293,4 +293,38 @@ export function arrayContains(first, second) {
   return count === first.length;
 }
 
-export default { Iterator, debounce, throttle, JSONPRequest, getType, memoize, merge, extend, queryfy, dequeryfy };
+/**
+ * Check if local storage is supported
+ * @returns {Boolean}
+ */
+export function isLocalStorageSupported() {
+  try {
+    var privateBrowsingKey = 'navigationModeSupportsLocalStorage';
+    root.localStorage.setItem(privateBrowsingKey, 0);
+    root.localStorage.removeItem(privateBrowsingKey);
+    return true;
+  } catch (err) {
+    return false;
+  }
+}
+
+/**
+ * Cross browsing addEvent
+ * 
+ * @param {String} event - the event name
+ * @param {HTMLElement} element - HTMLElement
+ * @param {Function} callback - 
+ * @returns {HTMLElement}
+ */
+export function addEvent(event, element, callback) {
+  if (typeof element.addEventListener !== 'undefined') {
+      element.addEventListener(event, callback, false);
+  } else if (typeof element.attachEvent !== 'undefined') {
+      element.attachEvent('on' + event, callback);
+  }	else {
+      element['on' + event] = callback;
+  }
+  return element;
+}
+
+export default { Iterator, debounce, throttle, JSONPRequest, getType, memoize, merge, extend, queryfy, dequeryfy, addEvent, isLocalStorageSupported };
