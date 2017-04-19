@@ -5,6 +5,7 @@ import {
   merge,
   arrayContains,
   debounce,
+  checkObject,
 } from '../main';
 
 describe('Utils tests', function() {
@@ -128,7 +129,7 @@ describe('Utils tests', function() {
       }, 110);
     });
 
-    it('Debounce: should be called only two times because called with leading true', function(done){
+    it('Debounce: should be called only two times because called with leading true', function (done) {
       var aSpy = jasmine.createSpy('spy');
       function add(a, b, callback) {
         aSpy(a, b, callback);
@@ -145,5 +146,10 @@ describe('Utils tests', function() {
         expect(aSpy.calls.count()).toEqual(2);
         done();
       }, 115);
+    });
+
+    it('checkObject: should return null if key not exist', function () {
+      var objTocheck = {a:{b:{c:{d:1}}}};
+      expect(checkObject('a.b.c.d', objTocheck)).toEqual(1);
     });
 });
