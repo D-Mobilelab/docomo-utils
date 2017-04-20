@@ -1,15 +1,26 @@
-### Commands
+### docomo-utils.js
 
--   npm run test
--   npm run test:watch    // run tests while typing
--   npm run build
--   npm run documentation // generate docs folder with .html, append docs to the readme.md
+A set of utilities function for docomo products. 
+Exports as Javascript Universal Module Definition (UMD)
 
-### Release a new version
+## Import in html
+```javascript
+// Specific range version
+<script src="https://unpkg.com/docomo-utils@^0.4.0/dist/docomo-utils.min.js"></script>
+//Last version
+<script src="https://unpkg.com/docomo-utils/dist/docomo-utils.min.js"></script>
+<script type="text/javascript">
+    var settings = window.docomoUtils.merge({a:1}, {b:2}); // => { a:1, b:2 }
+</script>
+```
 
--   npm version patch|minor|major
-    This will generate the docs/<version> and dist/<version>
-    so you can have the build version committed for that tag
+## Import in CommonJS style
+npm install docomot-utils
+```javascript
+import docomoUtils from 'docomo-utils';
+//OR
+import { queryfy, dequeryfy, merge, JSONPRequest } from 'docomo-utils';
+```
 
 # API
 
