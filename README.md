@@ -4,6 +4,7 @@ A set of utilities function for docomo products.
 Exports as Javascript Universal Module Definition (UMD)
 
 ## Import in html
+
 ```javascript
 // Specific range version
 <script src="https://unpkg.com/docomo-utils@^0.4.0/dist/docomo-utils.min.js"></script>
@@ -15,7 +16,9 @@ Exports as Javascript Universal Module Definition (UMD)
 ```
 
 ## Import in CommonJS style
+
 npm install docomot-utils
+
 ```javascript
 import docomoUtils from 'docomo-utils';
 //OR
@@ -150,7 +153,7 @@ Debounce. Wait ms to execute a function
 **Parameters**
 
 -   `fn` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** the function to be wrapped
--   `ms` **\[[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)](default 300)** the number of ms to wait
+-   `ms` **\[[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)]** the number of ms to wait (optional, default `300`)
 -   `immediate` **[Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** execute immediate and wait ms. If false only the last call
 
 Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** returns the function decorated
@@ -162,7 +165,7 @@ Throttle. Useful for resize event or scroll
 **Parameters**
 
 -   `fn` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** the function to be wrapped
--   `limit` **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** only x call for ms
+-   `limit` **\[[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)]** only x call for ms (optional, default `300`)
 
 Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** returns the function decorated
 
@@ -211,6 +214,7 @@ Check if the object has the nested keys list
 
 -   `keys` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String))** a string with point separator or a list of string keys
 -   `object` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** the object to be checked
+-   `defaultReturn` **\[any]**  (optional, default `null`)
 
 **Examples**
 
