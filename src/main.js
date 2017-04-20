@@ -31,7 +31,6 @@ export function Iterator(array) {
  * @returns {Object} a brand new object results of the merging
  * */
 export function extend(o1, o2) {
-
   const isObject = Object.prototype.toString.apply({});
   const newObject = {};
   if ((o1.toString() !== isObject) || (o2.toString() !== isObject)) {
@@ -220,45 +219,45 @@ export function JSONPRequest(url, timeout = 3000) {
 /**
  * Debounce. Wait ms to execute a function
  * @param {Function} fn - the function to be wrapped
- * @param {Number} ms - the number of ms to wait
+ * @param {Number} [ms = 300] - the number of ms to wait
  * @param {Boolean} immediate - execute immediate and wait ms. If false only the last call
  * @returns {Function} returns the function decorated
  */
-export function debounce(fn, ms = 300, immediate){
+export function debounce(fn, ms = 300, immediate) {
   var timeoutID;
   var theFn;
-  return function() {
-   var context = this, args = [].slice.call(arguments);
-   theFn = function(){
-    timeoutID = null;
-    if (!immediate) return fn.apply(context, args);
-   }
-   var callNow = immediate && !timeoutID;
-   clearTimeout(timeoutID);
-   timeoutID = setTimeout(theFn, ms);
-   if (callNow) return fn.apply(context, args);
-  }
+  return function () {
+    var context = this, args = [].slice.call(arguments);
+    theFn = function () {
+     timeoutID = null;
+     if (!immediate) return fn.apply(context, args);
+   };
+    var callNow = immediate && !timeoutID;
+    clearTimeout(timeoutID);
+    timeoutID = setTimeout(theFn, ms);
+    if (callNow) return fn.apply(context, args);
+  };
 }
 
 /**
  * Throttle. Useful for resize event or scroll
  * @param {Function} fn - the function to be wrapped
- * @param {Number} limit - only x call for ms
+ * @param {Number} [limit=300] - only x call for ms
  * @returns {Function} returns the function decorated
  */
-export function throttle(fn, limit) {
+export function throttle(fn, limit = 300) {
   var wait = false;
-  return function() {
-    var context = this, args = [].slice.call(arguments);;
+  return function () {
+    var context = this, args = [].slice.call(arguments);
     if (!wait) {
       var toReturn = fn.apply(context, args);
       wait = true;
-      setTimeout(function() {
+      setTimeout(function () {
         wait = false;
       }, limit);
       return toReturn;
     }
-  }
+  };
 }
 
 /**
@@ -271,19 +270,19 @@ export function throttle(fn, limit) {
  * @returns {Boolean}
  */
 export function arrayContains(first, second) {
-  if(first.length > second.length) {
+  if (first.length > second.length) {
     return false;
   }
 
   var savedK = 0, count = 0;
-  for(var i = 0; i < first.length; i++) {
-    for(var k = savedK; k < second.length; k++) {
+  for (var i = 0; i < first.length; i++) {
+    for (var k = savedK; k < second.length; k++) {
 
       var firstObject = typeof first[i] === 'object' ? JSON.stringify(first[i]) : first[i];
       var secondObject = typeof second[k] === 'object' ? JSON.stringify(second[k]) : second[k];
-      if(firstObject === secondObject){
+      if (firstObject === secondObject) {
         savedK = k + 1;
-        count += 1
+        count += 1;
         break;
       } else {
         count = 0;
@@ -297,9 +296,9 @@ export function arrayContains(first, second) {
  * Check if local storage is supported
  * @returns {Boolean}
  */
-export function isLocalStorageSupported() {
+export function isLocalStorageSupported() {  
   try {
-    var privateBrowsingKey = 'navigationModeSupportsLocalStorage';
+    const privateBrowsingKey = 'navigationModeSupportsLocalStorage';
     root.localStorage.setItem(privateBrowsingKey, 0);
     root.localStorage.removeItem(privateBrowsingKey);
     return true;
@@ -310,19 +309,19 @@ export function isLocalStorageSupported() {
 
 /**
  * Cross browsing addEvent
- * 
+ *
  * @param {String} event - the event name
  * @param {HTMLElement} element - HTMLElement
- * @param {Function} callback - 
+ * @param {Function} callback -
  * @returns {HTMLElement}
  */
 export function addEvent(event, element, callback) {
   if (typeof element.addEventListener !== 'undefined') {
-      element.addEventListener(event, callback, false);
+    element.addEventListener(event, callback, false);
   } else if (typeof element.attachEvent !== 'undefined') {
-      element.attachEvent('on' + event, callback);
+    element.attachEvent('on' + event, callback);
   }	else {
-      element['on' + event] = callback;
+    element['on' + event] = callback;
   }
   return element;
 }
@@ -350,4 +349,18 @@ export function checkObject(keys, object, defaultReturn = null) {
   return _keys.reduce((obj, key) => (obj && obj[key]) ? obj[key] : defaultReturn, object);
 }
 
-export default { Iterator, debounce, throttle, JSONPRequest, getType, memoize, merge, extend, queryfy, dequeryfy, addEvent, isLocalStorageSupported, checkObject };
+export default {
+  Iterator,
+  debounce,
+  throttle,
+  JSONPRequest,
+  getType,
+  memoize,
+  merge,
+  extend,
+  queryfy,
+  dequeryfy,
+  addEvent,
+  isLocalStorageSupported,
+  checkObject,
+};
