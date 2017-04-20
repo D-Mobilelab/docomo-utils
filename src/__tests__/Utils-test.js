@@ -152,4 +152,9 @@ describe('Utils tests', function() {
       var objTocheck = {a:{b:{c:{d:1}}}};
       expect(checkObject('a.b.c.d', objTocheck)).toEqual(1);
     });
+
+    it('checkObject: should return defaultReturn if specified', function () {
+      var objTocheck = {a:{b:{c:{d:1}}}};
+      expect(checkObject('a.b.c.d.e', objTocheck, true)).toEqual(true);
+    });
 });
