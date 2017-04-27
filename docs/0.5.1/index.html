@@ -35,76 +35,6 @@
               
                 
                 <li><a
-                  href='#extend'
-                  class="">
-                  extend
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#dequeryfy'
-                  class="">
-                  dequeryfy
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#queryfy'
-                  class="">
-                  queryfy
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#merge'
-                  class="">
-                  merge
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#memoize'
-                  class="">
-                  memoize
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#gettype'
-                  class="">
-                  getType
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#jsonprequest'
-                  class="">
-                  JSONPRequest
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
                   href='#debounce'
                   class="">
                   debounce
@@ -125,9 +55,9 @@
               
                 
                 <li><a
-                  href='#arraycontains'
+                  href='#jsonprequest'
                   class="">
-                  arrayContains
+                  JSONPRequest
                   
                 </a>
                 
@@ -135,9 +65,59 @@
               
                 
                 <li><a
-                  href='#islocalstoragesupported'
+                  href='#gettype'
                   class="">
-                  isLocalStorageSupported
+                  getType
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#memoize'
+                  class="">
+                  memoize
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#merge'
+                  class="">
+                  merge
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#extend'
+                  class="">
+                  extend
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#queryfy'
+                  class="">
+                  queryfy
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#dequeryfy'
+                  class="">
+                  dequeryfy
                   
                 </a>
                 
@@ -155,9 +135,29 @@
               
                 
                 <li><a
+                  href='#islocalstoragesupported'
+                  class="">
+                  isLocalStorageSupported
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#checkobject'
                   class="">
                   checkObject
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#arraycontains'
+                  class="">
+                  arrayContains
                   
                 </a>
                 
@@ -235,508 +235,6 @@
 it.next().value === <span class="hljs-string">"pippo"</span>; <span class="hljs-comment">//true</span>
 it.next().value === <span class="hljs-string">"pluto"</span>; <span class="hljs-comment">//true</span>
 it.next(<span class="hljs-literal">true</span>).value === <span class="hljs-string">"paperino"</span> <span class="hljs-comment">//false because with true you can reset it!</span></pre>
-    
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    <h3 class='fl m0' id='extend'>
-      extend
-    </h3>
-    
-  </div>
-  
-
-  <p>extend: this function merge two objects in a new one with the properties of both</p>
-
-
-  <div class='pre p1 fill-light mt0'>extend</div>
-
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>o1</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code> -
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>o2</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code> -
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
-        a brand new object results of the merging
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    <h3 class='fl m0' id='dequeryfy'>
-      dequeryfy
-    </h3>
-    
-  </div>
-  
-
-  <p>A function to dequerify query string</p>
-
-
-  <div class='pre p1 fill-light mt0'>dequeryfy</div>
-
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>_url</span> <code class='quiet'>(Strinq)</code> 
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
-        the object with key-value pairs, empty if no querystring is present
-
-      
-    
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>var url = "http://jsonplaceholder.typicode.com/comments?postId=1
-var obj = dequerify(url); //obj is {"postId":"1"}</pre>
-    
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    <h3 class='fl m0' id='queryfy'>
-      queryfy
-    </h3>
-    
-  </div>
-  
-
-  <p>A function to compose query string</p>
-
-
-  <div class='pre p1 fill-light mt0'>queryfy</div>
-
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>_api</span> <code class='quiet'>(Strinq)</code> the endpoint
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>query</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code> a key value object: will be append to 
-<api>
-?key=value&amp;key2=value2
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
-        the string composed
-
-      
-    
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">var</span> API = <span class="hljs-string">"http://jsonplaceholder.typicode.com/comments"</span>
-<span class="hljs-keyword">var</span> url = queryfy(API, {<span class="hljs-attr">postId</span>:<span class="hljs-number">1</span>});
-<span class="hljs-comment">// url will be "http://jsonplaceholder.typicode.com/comments?postId=1"</span></pre>
-    
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    <h3 class='fl m0' id='merge'>
-      merge
-    </h3>
-    
-  </div>
-  
-
-  <p>Merge n objects</p>
-
-
-  <div class='pre p1 fill-light mt0'>merge</div>
-
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>N</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code> object to merge together
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
-        
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    <h3 class='fl m0' id='memoize'>
-      memoize
-    </h3>
-    
-  </div>
-  
-
-  <p>Simple memoization function</p>
-
-
-  <div class='pre p1 fill-light mt0'>memoize</div>
-
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>fn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code> 
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>any</code>:
-        what the real function returns
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    <h3 class='fl m0' id='gettype'>
-      getType
-    </h3>
-    
-  </div>
-  
-
-  <p>getType</p>
-
-
-  <div class='pre p1 fill-light mt0'>getType</div>
-
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>obj</span> <code class='quiet'>(Any)</code> 
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
-        the type of the object. date for date array etc
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    <h3 class='fl m0' id='jsonprequest'>
-      JSONPRequest
-    </h3>
-    
-  </div>
-  
-
-  <p>Make a jsonp request, remember only GET
-The function create a tag script and append a callback param in querystring.
-The promise will be reject after 3s if the url fail to respond</p>
-
-
-  <div class='pre p1 fill-light mt0'>JSONPRequest</div>
-
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>url</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> the url with querystring but without &amp;callback at the end or &amp;function
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>timeout</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>](default 3000))</code> ms range for the response
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&lt;(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)&gt;</code>:
-        
-      
-    
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>&lt;pre&gt;
-request = <span class="hljs-keyword">new</span> JSONPRequest(<span class="hljs-string">"http://www.someapi.com/asd?somequery=1"</span>);
-request.then(<span class="hljs-function">(<span class="hljs-params">data</span>) =&gt;</span> {});
-<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span></span></pre>
     
   
 
@@ -912,18 +410,19 @@ request.then(<span class="hljs-function">(<span class="hljs-params">data</span>)
 
   
   <div class='clearfix'>
-    <h3 class='fl m0' id='arraycontains'>
-      arrayContains
+    <h3 class='fl m0' id='jsonprequest'>
+      JSONPRequest
     </h3>
     
   </div>
   
 
-  <p>Returns true if the first array is
-contained in the second one.</p>
+  <p>Make a jsonp request, remember only GET
+The function create a tag script and append a callback param in querystring.
+The promise will be reject after 3s if the url fail to respond</p>
 
 
-  <div class='pre p1 fill-light mt0'>arrayContains</div>
+  <div class='pre p1 fill-light mt0'>JSONPRequest</div>
 
   
 
@@ -939,14 +438,16 @@ contained in the second one.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>first</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>))</code> 
+            <span class='code bold'>url</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> the url with querystring but without &amp;callback at the end or &amp;function
+
           </div>
           
         </div>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>second</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>))</code> 
+            <span class='code bold'>timeout</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>](default 3000))</code> ms range for the response
+
           </div>
           
         </div>
@@ -959,7 +460,7 @@ contained in the second one.</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>&lt;(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)&gt;</code>:
         
       
     
@@ -971,8 +472,10 @@ contained in the second one.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>arrayContains([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>] [<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]) <span class="hljs-comment">// true</span>
-Works even <span class="hljs-keyword">with</span> array <span class="hljs-keyword">of</span> objects and string</pre>
+      <pre class='p1 overflow-auto round fill-light'>&lt;pre&gt;
+request = <span class="hljs-keyword">new</span> JSONPRequest(<span class="hljs-string">"http://www.someapi.com/asd?somequery=1"</span>);
+request.then(<span class="hljs-function">(<span class="hljs-params">data</span>) =&gt;</span> {});
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span></span></pre>
     
   
 
@@ -990,17 +493,17 @@ Works even <span class="hljs-keyword">with</span> array <span class="hljs-keywor
 
   
   <div class='clearfix'>
-    <h3 class='fl m0' id='islocalstoragesupported'>
-      isLocalStorageSupported
+    <h3 class='fl m0' id='gettype'>
+      getType
     </h3>
     
   </div>
   
 
-  <p>Check if local storage is supported</p>
+  <p>getType</p>
 
 
-  <div class='pre p1 fill-light mt0'>isLocalStorageSupported</div>
+  <div class='pre p1 fill-light mt0'>getType</div>
 
   
 
@@ -1010,6 +513,18 @@ Works even <span class="hljs-keyword">with</span> array <span class="hljs-keywor
   
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>obj</span> <code class='quiet'>(Any)</code> 
+          </div>
+          
+        </div>
+      
+    </div>
   
 
   
@@ -1017,7 +532,136 @@ Works even <span class="hljs-keyword">with</span> array <span class="hljs-keywor
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        the type of the object. date for date array etc
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    <h3 class='fl m0' id='memoize'>
+      memoize
+    </h3>
+    
+  </div>
+  
+
+  <p>Simple memoization function</p>
+
+
+  <div class='pre p1 fill-light mt0'>memoize</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>fn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code> 
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>any</code>:
+        what the real function returns
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    <h3 class='fl m0' id='merge'>
+      merge
+    </h3>
+    
+  </div>
+  
+
+  <p>Merge n objects</p>
+
+
+  <div class='pre p1 fill-light mt0'>merge</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>N</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code> object to merge together
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
         
       
     
@@ -1025,6 +669,233 @@ Works even <span class="hljs-keyword">with</span> array <span class="hljs-keywor
 
   
 
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    <h3 class='fl m0' id='extend'>
+      extend
+    </h3>
+    
+  </div>
+  
+
+  <p>extend: this function merge two objects in a new one with the properties of both</p>
+
+
+  <div class='pre p1 fill-light mt0'>extend</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>o1</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code> -
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>o2</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code> -
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        a brand new object results of the merging
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    <h3 class='fl m0' id='queryfy'>
+      queryfy
+    </h3>
+    
+  </div>
+  
+
+  <p>A function to compose query string</p>
+
+
+  <div class='pre p1 fill-light mt0'>queryfy</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>_api</span> <code class='quiet'>(Strinq)</code> the endpoint
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>query</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code> a key value object: will be append to 
+<api>
+?key=value&amp;key2=value2
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
+        the string composed
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">var</span> API = <span class="hljs-string">"http://jsonplaceholder.typicode.com/comments"</span>
+<span class="hljs-keyword">var</span> url = queryfy(API, {<span class="hljs-attr">postId</span>:<span class="hljs-number">1</span>});
+<span class="hljs-comment">// url will be "http://jsonplaceholder.typicode.com/comments?postId=1"</span></pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    <h3 class='fl m0' id='dequeryfy'>
+      dequeryfy
+    </h3>
+    
+  </div>
+  
+
+  <p>A function to dequerify query string</p>
+
+
+  <div class='pre p1 fill-light mt0'>dequeryfy</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>_url</span> <code class='quiet'>(Strinq)</code> 
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        the object with key-value pairs, empty if no querystring is present
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>var url = "http://jsonplaceholder.typicode.com/comments?postId=1
+var obj = dequerify(url); //obj is {"postId":"1"}</pre>
+    
   
 
   
@@ -1121,6 +992,57 @@ Works even <span class="hljs-keyword">with</span> array <span class="hljs-keywor
 
   
   <div class='clearfix'>
+    <h3 class='fl m0' id='islocalstoragesupported'>
+      isLocalStorageSupported
+    </h3>
+    
+  </div>
+  
+
+  <p>Check if local storage is supported</p>
+
+
+  <div class='pre p1 fill-light mt0'>isLocalStorageSupported</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
+        
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
     <h3 class='fl m0' id='checkobject'>
       checkObject
     </h3>
@@ -1193,6 +1115,84 @@ Works even <span class="hljs-keyword">with</span> array <span class="hljs-keywor
       
       <pre class='p1 overflow-auto round fill-light'>checkObject([<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>, <span class="hljs-number">2</span>], {<span class="hljs-attr">a</span>:{<span class="hljs-attr">b</span>:[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]}})); <span class="hljs-comment">// returns 3</span>
 checkObject(<span class="hljs-string">"a.b.0"</span>, {<span class="hljs-attr">a</span>:{<span class="hljs-attr">b</span>:[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]}})); <span class="hljs-comment">// returns the b[0]</span></pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    <h3 class='fl m0' id='arraycontains'>
+      arrayContains
+    </h3>
+    
+  </div>
+  
+
+  <p>Returns true if the first array is
+contained in the second one.</p>
+
+
+  <div class='pre p1 fill-light mt0'>arrayContains</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>first</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>))</code> 
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>second</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>))</code> 
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
+        
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>arrayContains([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>] [<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]) <span class="hljs-comment">// true</span>
+Works even <span class="hljs-keyword">with</span> array <span class="hljs-keyword">of</span> objects and string</pre>
     
   
 
