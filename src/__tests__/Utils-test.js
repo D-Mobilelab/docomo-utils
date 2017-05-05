@@ -150,11 +150,11 @@ describe('Utils tests', function() {
 
     it('checkObject: should return null if key not exist', function () {
       var objTocheck = {a:{b:{c:{d:1}}}};
-      expect(checkObject('a.b.c.d', objTocheck)).toEqual(1);
+      expect(checkObject(objTocheck, 'a.b.c.d')).toEqual(1);
     });
 
     it('checkObject: should return defaultReturn if specified', function () {
       var objTocheck = {a:{b:{c:{d:1}}}};
-      expect(checkObject('a.b.c.d.e', objTocheck, true)).toEqual(true);
+      expect(checkObject(objTocheck, 'a.b.c.d.e', true)).toEqual(true);
     });
 });

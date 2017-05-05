@@ -9,7 +9,7 @@
  * @param {any} [defaultReturn=null]
  * @returns {any|null} returns any value for that key or null if the key is undefined
  */
-export default function checkObject(keys, object, defaultReturn = null) {
+export default function checkObject(object, keys, defaultReturn = null) {
   let _keys;
   if (typeof keys === 'string') {
     _keys = keys.split('.');
