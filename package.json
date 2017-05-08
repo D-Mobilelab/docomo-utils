@@ -1,6 +1,6 @@
 {
   "name": "docomo-utils",
-  "version": "0.5.1",
+  "version": "1.0.0",
   "description": "set of utilities function",
   "main": "dist/docomo-utils.js",
   "module": "src/main.js",

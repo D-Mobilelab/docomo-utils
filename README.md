@@ -193,15 +193,15 @@ Check if the object has the nested keys list
 
 **Parameters**
 
--   `keys` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String))** a string with point separator or a list of string keys
 -   `object` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** the object to be checked
+-   `keys` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String))** a string point separated or a list of string keys
 -   `defaultReturn` **\[any]**  (optional, default `null`)
 
 **Examples**
 
 ```javascript
-checkObject(["a", "b", 2], {a:{b:[1,2,3]}})); // returns 3
-checkObject("a.b.0", {a:{b:[1,2,3]}})); // returns the b[0]
+checkObject({a:{b:[1,2,3]}}, ["a", "b", 2])); // returns 3
+checkObject({a:{b:[1,2,3]}}),"a.b.0"); // returns the b[0]
 ```
 
 Returns **(any | null)** returns any value for that key or null if the key is undefined

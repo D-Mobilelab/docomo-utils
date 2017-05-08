@@ -1069,7 +1069,7 @@ var obj = dequerify(url); //obj is {"postId":"1"}</pre>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>keys</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>))</code> a string with point separator or a list of string keys
+            <span class='code bold'>object</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code> the object to be checked
 
           </div>
           
@@ -1077,7 +1077,7 @@ var obj = dequerify(url); //obj is {"postId":"1"}</pre>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>object</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code> the object to be checked
+            <span class='code bold'>keys</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>))</code> a string point separated or a list of string keys
 
           </div>
           
@@ -1113,8 +1113,8 @@ var obj = dequerify(url); //obj is {"postId":"1"}</pre>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>checkObject([<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>, <span class="hljs-number">2</span>], {<span class="hljs-attr">a</span>:{<span class="hljs-attr">b</span>:[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]}})); <span class="hljs-comment">// returns 3</span>
-checkObject(<span class="hljs-string">"a.b.0"</span>, {<span class="hljs-attr">a</span>:{<span class="hljs-attr">b</span>:[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]}})); <span class="hljs-comment">// returns the b[0]</span></pre>
+      <pre class='p1 overflow-auto round fill-light'>checkObject({<span class="hljs-attr">a</span>:{<span class="hljs-attr">b</span>:[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]}}, [<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>, <span class="hljs-number">2</span>])); <span class="hljs-comment">// returns 3</span>
+checkObject({<span class="hljs-attr">a</span>:{<span class="hljs-attr">b</span>:[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]}}),<span class="hljs-string">"a.b.0"</span>); <span class="hljs-comment">// returns the b[0]</span></pre>
     
   
 
