@@ -6,6 +6,7 @@ import {
   arrayContains,
   debounce,
   checkObject,
+  memoize,
 } from '../main';
 
 describe('Utils tests', function() {
@@ -156,5 +157,85 @@ describe('Utils tests', function() {
     it('checkObject: should return defaultReturn if specified', function () {
       var objTocheck = {a:{b:{c:{d:1}}}};
       expect(checkObject(objTocheck, 'a.b.c.d.e', true)).toEqual(true);
+    });
+
+    it('Test memoization function with prototype function', function(){
+      var count = 0;
+      function Person(){
+        this.name = 'aldo';
+        this.surname = 'baglio';
+        this.getFullName = memoize(this.getFullName, function(){ return [this.name, this.surname]; }.bind(this));
+      };
+
+      Person.prototype.getFullName = function() {
+        count += 1;
+        return this.name + " " + this.surname;
+      };
+
+      var person = new Person();
+      
+      // spyOn(p, 'getFullName');
+
+      expect(person.getFullName()).toEqual('aldo baglio');
+      expect(count).toEqual(1);
+      expect(person.getFullName()).toEqual('aldo baglio');
+      expect(count).toEqual(1);
+
+      person.name = 'giovanni';
+      expect(person.getFullName()).toEqual('giovanni baglio');
+      expect(count).toEqual(2);
+      expect(person.getFullName()).toEqual('giovanni baglio');
+      expect(count).toEqual(2);
+    });
+
+    it('Test memoization function with prototype function 2', function(){
+      var count = 0;
+      function Person(){
+        this.name = 'aldo';
+        this.surname = 'baglio';        
+      };
+
+      Person.prototype.getFullName = function(title) {
+        count += 1;
+        var _title = title ? title : '';
+        return _title + this.name + ' ' + this.surname;
+      };
+
+      var person = new Person();
+      
+      // spyOn(p, 'getFullName');
+      var memoized = memoize(person.getFullName.bind(person), function(){ return [this.name, this.surname];}.bind(person));
+
+      expect(memoized()).toEqual('aldo baglio');
+      expect(memoized()).toEqual('aldo baglio');
+      expect(count).toEqual(1);
+
+      // change somenthing should call the function another time
+      person.name = 'giovanni';
+      expect(memoized()).toEqual('giovanni baglio');
+      expect(count).toEqual(2);
+
+      // change somenthing should call the function another time
+      person.name = 'Giovanni';
+      expect(memoized('Mr.')).toEqual('Mr.Giovanni baglio');
+      expect(count).toEqual(3);
+
+      // should remain 3
+      person.name = 'Giovanni';
+      expect(memoized('Mr.')).toEqual('Mr.Giovanni baglio');
+      expect(count).toEqual(3);
+    });
+
+    it('Test memoization without deps', function(){
+      var count = 0;
+      function add() {
+        count += 1;
+        return [].slice.call(arguments).reduce(function(prev, current) { return prev + current;}, 0);
+      }      
+      
+      var addMemoized = memoize(add);
+      expect(addMemoized(5, 4, 3)).toEqual(12);
+      expect(addMemoized(5, 4, 3)).toEqual(12);
+      expect(count).toEqual(1);
     });
 });
