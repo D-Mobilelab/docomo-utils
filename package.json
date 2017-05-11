@@ -3,16 +3,17 @@
   "version": "1.0.0",
   "description": "set of utilities function",
   "main": "dist/docomo-utils.js",
-  "module": "src/main.js",
+  "module": "src5/main.js",
   "repository": {
     "type": "git",
     "url": ""
   },
   "scripts": {
-    "build": "npm run clean && npm run build:dev && npm run build:prd",
+    "transpile": "babel src --out-dir src5",
+    "build": "npm run clean && npm run build:dev && npm run build:prd && npm run transpile",
     "build:dev": "webpack dist/$npm_package_name.js --config tools/webpack.config.dev.js",
     "build:prd": "webpack dist/$npm_package_name.min.js --config tools/webpack.config.prd.js",
-    "clean": "rimraf dist build docs",
+    "clean": "rimraf dist build docs src5",
     "lint": "eslint src",
     "preversion": "npm run test",
     "version": "npm run build && npm run documentation && git add -fA README.md src/ dist/ docs/",
@@ -61,7 +62,6 @@
     "webpack": "^1.12.11"
   },
   "dependencies": {
-    "babel-runtime": "^6.20.0",
-    "core-decorators": "^0.15.0"
+    "babel-runtime": "^6.20.0"    
   }
 }
