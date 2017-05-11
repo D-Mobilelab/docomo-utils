@@ -104,11 +104,32 @@ Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refer
 
 ## memoize
 
-Simple memoization function
+Simple memoization function.
+A memoizated function cache the results of a function
+computation when it receives the same params
 
 **Parameters**
 
--   `fn` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+-   `fn` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** the function to memoize
+-   `deps` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** should returns an array with dependencies
+
+**Examples**
+
+```javascript
+function Person(){
+this.name = 'aldo';
+this.surname = 'baglio';    
+};
+
+Person.prototype.getFullName = function(title) {        
+var _title = title ? title : '';
+return _title + this.name + ' ' + this.surname;
+};
+
+var person = new Person();
+//remember to bind it
+var memoized = memoize(person.getFullName.bind(person), function(){ return [this.name, this.surname];}.bind(person));
+```
 
 Returns **any** what the real function returns
 

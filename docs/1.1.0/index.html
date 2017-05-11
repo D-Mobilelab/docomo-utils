@@ -564,7 +564,9 @@ request.then(<span class="hljs-function">(<span class="hljs-params">data</span>)
   </div>
   
 
-  <p>Simple memoization function</p>
+  <p>Simple memoization function.
+A memoizated function cache the results of a function
+computation when it receives the same params</p>
 
 
   <div class='pre p1 fill-light mt0'>memoize</div>
@@ -583,7 +585,16 @@ request.then(<span class="hljs-function">(<span class="hljs-params">data</span>)
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>fn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code> 
+            <span class='code bold'>fn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code> the function to memoize
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>deps</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code> should returns an array with dependencies
+
           </div>
           
         </div>
@@ -605,6 +616,24 @@ request.then(<span class="hljs-function">(<span class="hljs-params">data</span>)
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>)</span>{
+<span class="hljs-keyword">this</span>.name = <span class="hljs-string">'aldo'</span>;
+<span class="hljs-keyword">this</span>.surname = <span class="hljs-string">'baglio'</span>;    
+};
+
+Person.prototype.getFullName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">title</span>) </span>{        
+<span class="hljs-keyword">var</span> _title = title ? title : <span class="hljs-string">''</span>;
+<span class="hljs-keyword">return</span> _title + <span class="hljs-keyword">this</span>.name + <span class="hljs-string">' '</span> + <span class="hljs-keyword">this</span>.surname;
+};
+
+<span class="hljs-keyword">var</span> person = <span class="hljs-keyword">new</span> Person();
+<span class="hljs-comment">//remember to bind it</span>
+<span class="hljs-keyword">var</span> memoized = memoize(person.getFullName.bind(person), <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ <span class="hljs-keyword">return</span> [<span class="hljs-keyword">this</span>.name, <span class="hljs-keyword">this</span>.surname];}.bind(person));</pre>
+    
   
 
   
