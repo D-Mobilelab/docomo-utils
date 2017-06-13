@@ -60,8 +60,7 @@ Debounce. Wait ms to execute a function
 -   `fn` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** the function to be wrapped
 -   `ms` **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of ms to wait (optional, default `300`)
 -   `immediate` **[Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** execute immediate and wait ms. If false only the last call
--   `scope`  
--   `context` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** the this object. default to this-generated function (optional, default `this`)
+-   `scope` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** the this object. default is this-generated function (optional, default `this`)
 
 Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** returns the function decorated
 
@@ -191,8 +190,8 @@ A function to dequerify query string
 **Examples**
 
 ```javascript
-var url = "http://jsonplaceholder.typicode.com/comments?postId=1
-var obj = dequerify(url); //obj is {"postId":"1"}
+var url = "http://jsonplaceholder.typicode.com/comments?postId=1"
+var obj = dequeryfy(url); //obj is {"postId":"1"}
 ```
 
 Returns **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** the object with key-value pairs, empty if no querystring is present
@@ -276,14 +275,10 @@ generatePony
 **Parameters**
 
 -   `Config` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** the vhost configuration
--   `options` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** \- (optional, default `{return_url:''}`)
-    -   `options.return_url` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** \-
+-   `options` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** options params (optional, default `{return_url:''}`)
+    -   `options.return_url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the abs url where to return on mfp get
 
 Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)>** the pony string
-
-## cookiesAsObject
-
-Add cookie key-value pairs
 
 ## readCookies
 
