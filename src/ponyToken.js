@@ -82,3 +82,5 @@ export function generatePony(Config, options = { return_url: '' }) {
         })
         .then(results => results[0]);
 }
+
+export default generatePony;
