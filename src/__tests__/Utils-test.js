@@ -11,11 +11,11 @@ import {
 
 describe('Utils tests', function() {
 
-    beforeEach(() => {
+    beforeEach(function() {
 
     });
 
-    afterEach(() => {
+    afterEach(function() {
 
     });
 
@@ -161,7 +161,7 @@ describe('Utils tests', function() {
 
     it('Test memoization function with prototype function', function(){
       var count = 0;
-      function Person(){
+      function Person() {
         this.name = 'aldo';
         this.surname = 'baglio';
         this.getFullName = memoize(this.getFullName, function(){ return [this.name, this.surname]; }.bind(this));
@@ -204,13 +204,13 @@ describe('Utils tests', function() {
       var person = new Person();
       
       // spyOn(p, 'getFullName');
-      var memoized = memoize(person.getFullName.bind(person), function(){ return [this.name, this.surname];}.bind(person));
+      var memoized = memoize(person.getFullName, function(){ return [this.name, this.surname];}.bind(person), person);
 
       expect(memoized()).toEqual('aldo baglio');
       expect(memoized()).toEqual('aldo baglio');
       expect(count).toEqual(1);
 
-      // change somenthing should call the function another time
+      // changing somenthing should trigger another call
       person.name = 'giovanni';
       expect(memoized()).toEqual('giovanni baglio');
       expect(count).toEqual(2);
@@ -231,8 +231,8 @@ describe('Utils tests', function() {
       function add() {
         count += 1;
         return [].slice.call(arguments).reduce(function(prev, current) { return prev + current;}, 0);
-      }      
-      
+      }
+
       var addMemoized = memoize(add);
       expect(addMemoized(5, 4, 3)).toEqual(12);
       expect(addMemoized(5, 4, 3)).toEqual(12);
