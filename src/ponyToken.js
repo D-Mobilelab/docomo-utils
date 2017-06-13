@@ -48,8 +48,8 @@ export function setFingerPrint(Config, pony, returnUrl) {
  * generatePony
  * @export
  * @param {object} Config - the vhost configuration
- * @param {object} options -
- * @param {object} options.return_url -
+ * @param {object} options - options params
+ * @param {string} options.return_url - the abs url where to return on mfp get
  * @returns {Promise<String>} the pony string
  */
 export function generatePony(Config, options = { return_url: '' }) {
@@ -63,9 +63,7 @@ export function generatePony(Config, options = { return_url: '' }) {
     },
   };
 
-  /**
-   * Add cookie key-value pairs
-   */
+  // Add cookie key-value pairs
   const cookiesAsObject = readCookies(document.cookie);
   MFP_COOKIE_LIST.split(',').map((key) => {
     ponyParams.data.cookieData.cookie[key] = cookiesAsObject[key];

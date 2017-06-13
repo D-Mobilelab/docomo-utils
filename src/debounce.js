@@ -3,7 +3,7 @@
  * @param {Function} fn - the function to be wrapped
  * @param {Number} [ms = 300] - the number of ms to wait
  * @param {Boolean} immediate - execute immediate and wait ms. If false only the last call
- * @param {Object} [context=this] - the this object. default to this-generated function
+ * @param {Object} [scope=this] - the this object. default is this-generated function
  * @returns {Function} returns the function decorated
  */
 export default function debounce(fn, ms = 300, immediate, scope) {

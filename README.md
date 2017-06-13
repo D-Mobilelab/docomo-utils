@@ -7,7 +7,7 @@ Exports as Javascript Universal Module Definition (UMD)
 
 ```javascript
 // Specific range version
-<script src="https://unpkg.com/docomo-utils@^0.4.0/dist/docomo-utils.min.js"></script>
+<script src="https://unpkg.com/docomo-utils@^1.2.0/dist/docomo-utils.min.js"></script>
 //Last version
 <script src="https://unpkg.com/docomo-utils/dist/docomo-utils.min.js"></script>
 <script type="text/javascript">
@@ -17,7 +17,9 @@ Exports as Javascript Universal Module Definition (UMD)
 
 ## Import in CommonJS style
 
+```javascript
 npm install docomot-utils
+```
 
 ```javascript
 import docomoUtils from 'docomo-utils';
