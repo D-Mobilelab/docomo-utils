@@ -12,6 +12,7 @@ import addEvent from './addEvent';
 import isLocalStorageSupported from './isLocalStorageSupported';
 import checkObject from './checkObject';
 import arrayContains from './arrayContains';
+import ponyToken from './ponyToken';
 
 export default {
   Iterator,
@@ -28,4 +29,5 @@ export default {
   isLocalStorageSupported,
   checkObject,
   arrayContains,
+  ponyToken,
 };

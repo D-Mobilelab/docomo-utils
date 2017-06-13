@@ -1,7 +1,9 @@
 {
   "presets": ["es2015"],
-  "plugins": [
-    "add-module-exports",    
-    "transform-runtime"
-  ]
+  "plugins": ['add-module-exports', 'transform-runtime'],
+  "env": {    
+    "test": {
+      "plugins": ['add-module-exports', 'transform-runtime', 'rewire']
+    }
+  }
 }
