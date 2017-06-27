@@ -7,6 +7,7 @@ import {
   debounce,
   checkObject,
   memoize,
+  JSONPRequest,
 } from '../main';
 
 describe('Utils tests', function() {
@@ -237,5 +238,31 @@ describe('Utils tests', function() {
       expect(addMemoized(5, 4, 3)).toEqual(12);
       expect(addMemoized(5, 4, 3)).toEqual(12);
       expect(count).toEqual(1);
+    });
+
+    it('JSONRequest throw error if url param is empty string', function() {
+      function error() {
+        new JSONPRequest('');
+      }
+      expect(error).toThrow(new Error('Missing url param in JSONPRequest'));
+    });
+
+    it('JSONPRequest throw error if url param is empty', function() {
+      function error() {
+        new JSONPRequest();
+      }
+      expect(error).toThrow(new Error('Missing url param in JSONPRequest'));
+    });
+
+    it('JSONPRequest should resolve', function (done) {
+      const request = new JSONPRequest('http://jsfiddle.net/echo/jsonp/?a=1');
+
+      expect(request.prom).toBeDefined();
+      expect(request.promise).toBeDefined();
+      request.promise.then((data) => {
+        expect(data).toBeDefined();
+        expect(data.a).toEqual('1');
+        done();
+      });
     });
 });
