@@ -19,7 +19,7 @@
     "preversion": "npm run test",
     "version": "npm run build && npm run documentation && git add -fA README.md src/ dist/ docs/",
     "test": "NODE_ENV=test karma start --single-run --no-auto-watch karma.config.js",
-    "test:watch": "karma start karma.config.js",
+    "test:watch": "NODE_ENV=test karma start karma.config.js",
     "documentation": "npm run gen:docs && npm run gen:readme",
     "serve:docs": "./node_modules/documentation/bin/documentation.js serve src/main.js",
     "gen:docs": "./node_modules/documentation/bin/documentation.js build src/main.js -f html -o docs/$npm_package_version",
