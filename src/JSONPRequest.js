@@ -1,4 +1,3 @@
-import queryfy from './queryfy';
 /**
  * Make a jsonp request, remember only GET
  * The function create a tag script and append a callback param in querystring.
@@ -19,13 +18,12 @@ export default function JSONPRequest(url, timeout = 3000) {
   if (window.document) {
     const ts = Date.now();
     self.scriptTag = window.document.createElement('script');
-    // url += '&callback=window.__jsonpHandler_' + ts;
-    let _url = '';
-    if (url && url !== '') {
-      _url = queryfy(url, { callback: `window.__jsonpHandler_${ts}` });
+    if (!url || url === '') {
+      throw new Error('Missing url param in JSONPRequest');
     }
 
-    self.scriptTag.src = _url;
+    const finalURL = `${url}&callback=window.__jsonpHandler_${ts}`;
+    self.scriptTag.src = finalURL;
     self.scriptTag.type = 'text/javascript';
     self.scriptTag.async = true;
     const promise = new Promise((resolve, reject) => {
@@ -39,7 +37,7 @@ export default function JSONPRequest(url, timeout = 3000) {
       // reject after a timeout
       setTimeout(() => {
         if (!self.called) {
-          reject(`Timeout jsonp request ${ts}, ${_url}`);
+          reject(`Timeout jsonp request ${ts}, ${finalURL}`);
           self.scriptTag.parentElement.removeChild(self.scriptTag);
           delete window[functionName];
         }
