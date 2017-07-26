@@ -1,49 +1,47 @@
 import Cookies from 'js-cookie';
-import MockAdapter from 'axios-mock-adapter';
 /**
  * Use rewire to mock dependencies inside a module (exclude this babel plugin when build for production)
  * https://github.com/speedskater/babel-plugin-rewire
  * **/
 import FakeConfig from './fakeConfig';
 import { generatePony, setFingerPrint, __RewireAPI__ as PonyTokenRewire } from '../ponyToken';
-import axios from 'axios';
+import 'jasmine-ajax';
 
-describe('PonyToken tests', function() {
+describe('PonyToken tests', function () {
 
   const createponyResponse = {
     ponyUrl: '&_PONY=12-1776e43daf199f3a0f5360616b969517999999END'
   };
 
-  let mock;
-
-  beforeEach(function() {
-    mock = new MockAdapter(axios);
-    mock.onGet(FakeConfig.MOA_API_CREATEPONY)
-        .reply(200, createponyResponse);
+  beforeEach(function () {
+    jasmine.Ajax.install();
+    jasmine.Ajax.stubRequest(/^http:\/\/www.gameasy.com\/it\/v01\/createpony/).andReturn({
+      'status': 200,
+      'contentType': 'text/plain',
+      'responseText': JSON.stringify(createponyResponse),
+      'response': createponyResponse
+    });
     const cookieList = FakeConfig.MFP_COOKIE_LIST.split(',');
     cookieList.forEach((value) => {
       Cookies.set(value, `mocked-${value}`);
     });
-    mock.onGet(FakeConfig.MOA_API_CREATEPONY).reply(200, createponyResponse);
   });
 
-  afterEach(function(){
-    mock.restore();
-    mock.reset();
+  afterEach(function () {
+    jasmine.Ajax.uninstall();
     PonyTokenRewire.__ResetDependency__('JSONPRequest');
   });
 
   it('generatePony test', function (done) {
-    PonyTokenRewire.__Rewire__('JSONPRequest', function(url) {      
+    PonyTokenRewire.__Rewire__('JSONPRequest', function(url) {
       let prom = Promise.resolve(url);
       return {
         prom,
       };
-    });
-
+    });    
     generatePony(FakeConfig, { return_url: 'http://www.gameasy.com' })
-      .then((pony) => {
-        expect(pony).toEqual(createponyResponse.ponyUrl.replace('&',''));
+      .then((pony) => {        
+        expect(pony).toEqual(createponyResponse.ponyUrl.replace('&',''));        
         done();
       }).catch(done.fail);
   });
@@ -51,7 +49,7 @@ describe('PonyToken tests', function() {
   it('setFingerprint test', function (done) {
     const spyJSONPRequest = jasmine.createSpy('spy');
 
-    PonyTokenRewire.__Rewire__('JSONPRequest', function(url){
+    PonyTokenRewire.__Rewire__('JSONPRequest', function(url) {
       spyJSONPRequest(url);
       let prom = Promise.resolve(url);
       return {

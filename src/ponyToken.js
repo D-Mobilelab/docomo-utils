@@ -1,8 +1,6 @@
 import JSONPRequest from './JSONPRequest';
 import checkObject from './checkObject';
 import queryfy from './queryfy';
-import axios from 'axios';
-
 import readCookies from './readCookies';
 
 /**
@@ -25,18 +23,18 @@ export function setFingerPrint(Config, pony, returnUrl) {
       fpnamespace: Config.MFP_NAMESPACE ? Config.MFP_NAMESPACE : Config.SITE_PROFILE,
       extData: {
         domain: Config.DEST_DOMAIN,
-        return_url: returnUrl,
+        return_url: encodeURIComponent(returnUrl),
         ponyUrl: pony,
       },
     },
     country: Config.MFP_TLD ? Config.MFP_TLD : Config.TLD,
     expire: Config.MFP_EXPIRE || 300,
   };
-
   /** God forgive them because they don't know what they do */
+  // use this otherwise will not work (shame)
   mfpParams.contents_inapp = JSON.stringify(mfpParams.contents_inapp);
+  const url = MFP_API_URL + decodeURIComponent(queryfy('', mfpParams));
 
-  const url = queryfy(MFP_API_URL, mfpParams);
   const request = new JSONPRequest(url);
   return request.prom.then((response) => {
     console.log('setFingerPrint:OK', response);
@@ -45,11 +43,40 @@ export function setFingerPrint(Config, pony, returnUrl) {
 }
 
 /**
+ * make get request
+ * @private
+ * @param {string} url - url to be requested
+ * @returns {Promise}
+ */
+function get(url, options = { withCredentials: false }) {
+  const xhr = new(window.XMLHttpRequest || window.ActiveXObject)('MSXML2.XMLHTTP.3.0');
+  xhr.open('GET', url, true);
+  xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+  if ('withCredentials' in new XMLHttpRequest) xhr.withCredentials = options.withCredentials;
+
+  const promise = new Promise((resolve, reject) => {
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === xhr.DONE) {
+        let responseJSON = {};
+        try {
+          responseJSON = JSON.parse(xhr.responseText);
+        } catch (e) {
+          reject(e);
+        }
+        resolve(responseJSON);
+      }
+    };
+  });
+  xhr.send(null);
+  return promise;
+}
+
+/**
  * generatePony
  * @export
  * @param {object} Config - the vhost configuration
- * @param {object} options - options params
- * @param {string} options.return_url - the abs url where to return on mfp get
+ * @param {object} options -
+ * @param {object} options.return_url -
  * @returns {Promise<String>} the pony string
  */
 export function generatePony(Config, options = { return_url: '' }) {
@@ -71,16 +98,14 @@ export function generatePony(Config, options = { return_url: '' }) {
   });
 
   const encodedParams = encodeURIComponent(JSON.stringify(ponyParams));
-  const configRequest = { params: { data: encodedParams }, withCredentials: true };
+  const finalURL = MOA_API_CREATEPONY + '?data=' + encodedParams;
 
-  return axios.get(MOA_API_CREATEPONY, configRequest)
+  return get(finalURL, { withCredentials: true })
         .then((response) => {
-          console.log('Pony created:OK', MOA_API_CREATEPONY);
-          let pony = checkObject(response, 'data.ponyUrl');
+          console.log('Pony created:OK', finalURL);
+          let pony = checkObject(response, 'ponyUrl');
           if (pony) { pony = pony.replace('&', ''); }
           return Promise.all([pony, setFingerPrint(Config, pony, options.return_url)]);
         })
         .then(results => results[0]);
 }
-
-export default generatePony;
