@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
  * https://github.com/speedskater/babel-plugin-rewire
  * **/
 import FakeConfig from './fakeConfig';
-import { generatePony, setFingerPrint, __RewireAPI__ as PonyTokenRewire } from '../ponyToken';
+import { ponyToken as generatePony, setFingerPrint, __RewireAPI__ as PonyTokenRewire } from '../ponyToken';
 import 'jasmine-ajax';
 
 describe('PonyToken tests', function () {
