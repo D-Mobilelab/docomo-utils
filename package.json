@@ -16,8 +16,9 @@
     "build:prd": "webpack dist/$npm_package_name.min.js --config tools/webpack.config.prd.js",
     "clean": "rimraf dist build docs src5",
     "lint": "eslint src",
+    "lec": "./node_modules/lec/cmd-runner.js -d -r docs/",
     "preversion": "npm run test",
-    "version": "npm run build && npm run documentation && git add -fA README.md src/ dist/ docs/",
+    "version": "npm run build && npm run documentation && git add -fA README.md src/ dist/",
     "test": "NODE_ENV=test karma start --single-run --no-auto-watch karma.config.js",
     "test:watch": "NODE_ENV=test karma start karma.config.js",
     "documentation": "npm run gen:docs && npm run gen:readme",
@@ -62,6 +63,7 @@
     "karma-mocha-reporter": "^2.2.1",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.7.0",
+    "lec": "^1.0.1",
     "loader-utils": "^0.2.12",
     "rimraf": "^2.5.0",
     "webpack": "^1.12.11"
