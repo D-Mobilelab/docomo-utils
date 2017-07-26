@@ -268,7 +268,7 @@ Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 God forgive them because they don't know what they do
 
-## generatePony
+## ponyToken
 
 generatePony
 

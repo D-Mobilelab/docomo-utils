@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
  * https://github.com/speedskater/babel-plugin-rewire
  * **/
 import FakeConfig from './fakeConfig';
-import { ponyToken as generatePony, setFingerPrint, __RewireAPI__ as PonyTokenRewire } from '../ponyToken';
+import generatePony, { setFingerPrint, __RewireAPI__ as PonyTokenRewire } from '../ponyToken';
 import 'jasmine-ajax';
 
 describe('PonyToken tests', function () {
@@ -38,9 +38,9 @@ describe('PonyToken tests', function () {
       return {
         prom,
       };
-    });    
+    });
     generatePony(FakeConfig, { return_url: 'http://www.gameasy.com' })
-      .then((pony) => {        
+      .then((pony) => {
         expect(pony).toEqual(createponyResponse.ponyUrl.replace('&',''));        
         done();
       }).catch(done.fail);

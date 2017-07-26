@@ -79,7 +79,7 @@ function get(url, options = { withCredentials: false }) {
  * @param {object} options.return_url -
  * @returns {Promise<String>} the pony string
  */
-export function ponyToken(Config, options = { return_url: '' }) {
+export default function ponyToken(Config, options = { return_url: '' }) {
   const { MOA_API_CREATEPONY, MFP_COOKIE_LIST } = Config;
   const ponyParams = {
     data: {
