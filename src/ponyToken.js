@@ -23,7 +23,7 @@ export function setFingerPrint(Config, pony, returnUrl) {
       fpnamespace: Config.MFP_NAMESPACE ? Config.MFP_NAMESPACE : Config.SITE_PROFILE,
       extData: {
         domain: Config.DEST_DOMAIN,
-        return_url: encodeURIComponent(returnUrl),
+        return_url: returnUrl,
         ponyUrl: pony,
       },
     },
@@ -32,7 +32,7 @@ export function setFingerPrint(Config, pony, returnUrl) {
   };
   /** God forgive them because they don't know what they do */
   // use this otherwise will not work (shame)
-  mfpParams.contents_inapp = JSON.stringify(mfpParams.contents_inapp);
+  mfpParams.contents_inapp = encodeURIComponent(JSON.stringify(mfpParams.contents_inapp)).replace(/'/g, '%27').replace(/"/g, '%22');
   const url = MFP_API_URL + decodeURIComponent(queryfy('', mfpParams));
 
   const request = new JSONPRequest(url);

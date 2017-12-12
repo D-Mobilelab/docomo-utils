@@ -8,7 +8,6 @@ import generatePony, { setFingerPrint, __RewireAPI__ as PonyTokenRewire } from '
 import 'jasmine-ajax';
 
 describe('PonyToken tests', function () {
-
   const createponyResponse = {
     ponyUrl: '&_PONY=12-1776e43daf199f3a0f5360616b969517999999END'
   };
@@ -39,9 +38,9 @@ describe('PonyToken tests', function () {
         prom,
       };
     });
-    generatePony(FakeConfig, { return_url: 'http://www.gameasy.com' })
+    generatePony(FakeConfig, { return_url: 'http://www.gameasy.com/it/#!/games/12893172398127_asdasd' })
       .then((pony) => {
-        expect(pony).toEqual(createponyResponse.ponyUrl.replace('&',''));        
+        expect(pony).toEqual(createponyResponse.ponyUrl.replace('&', ''));
         done();
       }).catch(done.fail);
   });
@@ -57,7 +56,7 @@ describe('PonyToken tests', function () {
       };
     });
 
-    setFingerPrint(FakeConfig, '_PONY_1234567890END', 'http://www.gameasy.com')
+    setFingerPrint(FakeConfig, '_PONY_1234567890END', 'http://www.gameasy.com/it/#!/games/12893172398127_asdasd')
       .then((result) => {
         expect(spyJSONPRequest).toHaveBeenCalled();
         expect(spyJSONPRequest).toHaveBeenCalledTimes(1);
