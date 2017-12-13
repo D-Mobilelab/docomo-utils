@@ -82,18 +82,16 @@ function get(url, options = { withCredentials: false }) {
 export default function ponyToken(Config, options = { return_url: '' }) {
   const { MOA_API_CREATEPONY, MFP_COOKIE_LIST } = Config;
   const ponyParams = {
-    data: {
-      return_url: options.return_url,
-      cookieData: {
-        cookie: {},
-      },
+    return_url: options.return_url,
+    cookieData: {
+      cookie: {},
     },
   };
 
   // Add cookie key-value pairs
   const cookiesAsObject = readCookies(document.cookie);
   MFP_COOKIE_LIST.split(',').map((key) => {
-    ponyParams.data.cookieData.cookie[key] = cookiesAsObject[key];
+    ponyParams.cookieData.cookie[key] = cookiesAsObject[key];
     return ponyParams;
   });
 
@@ -105,7 +103,10 @@ export default function ponyToken(Config, options = { return_url: '' }) {
           console.log('Pony created:OK', finalURL);
           let pony = checkObject(response, 'ponyUrl');
           if (pony) { pony = pony.replace('&', ''); }
-          return Promise.all([pony, setFingerPrint(Config, pony, options.return_url)]);
+          return Promise.all([
+            pony,
+            setFingerPrint(Config, pony, options.return_url),
+          ]);
         })
         .then(results => results[0]);
 }
