@@ -18,5 +18,12 @@ export default function checkObject(object, keys, defaultReturn = null) {
   } else {
     return defaultReturn;
   }
-  return _keys.reduce((obj, key) => (obj && obj[key]) ? obj[key] : defaultReturn, object);
+
+  return _keys.reduce((obj, key) => {
+    // handle zero value
+    if (obj && obj[key] || typeof obj[key] === 'number') {
+      return obj[key];
+    }
+    return defaultReturn;
+  }, object);
 }

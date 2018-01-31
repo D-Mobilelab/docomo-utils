@@ -155,6 +155,16 @@ describe('Utils tests', function() {
       expect(checkObject(objTocheck, 'a.b.c.d')).toEqual(1);
     });
 
+    it('checkObject: should return 0 if key with that value exist', function () {
+      var objTocheck = {a:{b:{c:{d:0}}}};
+      expect(checkObject(objTocheck, 'a.b.c.d')).toEqual(0);
+    });
+
+    it('checkObject: should return "0" if key with that value exist', function () {
+      var objTocheck = { a: { b: { c: { d: '0' } } } };
+      expect(checkObject(objTocheck, 'a.b.c.d')).toEqual('0');
+    });
+
     it('checkObject: should return defaultReturn if specified', function () {
       var objTocheck = {a:{b:{c:{d:1}}}};
       expect(checkObject(objTocheck, 'a.b.c.d.e', true)).toEqual(true);
