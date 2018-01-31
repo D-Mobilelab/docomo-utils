@@ -37,7 +37,7 @@ Iterator
 
 **Parameters**
 
--   `array` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** the array you want to transform in iterator
+-   `array` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** the array you want to transform in iterator
 
 **Examples**
 
@@ -49,7 +49,7 @@ it.next().value === "pluto"; //true
 it.next(true).value === "paperino" //false because with true you can reset it!
 ```
 
-Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** an iterator-like object
+Returns **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** an iterator-like object
 
 ## debounce
 
@@ -57,12 +57,12 @@ Debounce. Wait ms to execute a function
 
 **Parameters**
 
--   `fn` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** the function to be wrapped
--   `ms` **[Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of ms to wait (optional, default `300`)
--   `immediate` **[Boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** execute immediate and wait ms. If false only the last call
--   `scope` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** the this object. default is this-generated function (optional, default `this`)
+-   `fn` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** the function to be wrapped
+-   `ms` **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of ms to wait (optional, default `300`)
+-   `immediate` **[Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** execute immediate and wait ms. If false only the last call
+-   `scope` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** the this object. default is this-generated function (optional, default `this`)
 
-Returns **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** returns the function decorated
+Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** returns the function decorated
 
 ## throttle
 
@@ -70,11 +70,11 @@ Throttle. Useful for resize event or scroll
 
 **Parameters**
 
--   `fn` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** the function to be wrapped
--   `limit` **[Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** only x call for ms (optional, default `300`)
--   `scope` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** the this object. default to this-generated function (optional, default `this`)
+-   `fn` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** the function to be wrapped
+-   `limit` **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** only x call for ms (optional, default `300`)
+-   `scope` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** the this object. default to this-generated function (optional, default `this`)
 
-Returns **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** returns the function decorated
+Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** returns the function decorated
 
 ## JSONPRequest
 
@@ -84,8 +84,8 @@ The promise will be reject after 3s if the url fail to respond
 
 **Parameters**
 
--   `url` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the url with querystring but without &callback at the end or &function
--   `timeout` **[Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** ms range for the response (optional, default `3000`)
+-   `url` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the url with querystring but without &callback at the end or &function
+-   `timeout` **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** ms range for the response (optional, default `3000`)
 
 **Examples**
 
@@ -95,7 +95,7 @@ request.promise.then((data) => {});
 request.prom.then((data) => {});
 ```
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;([Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) \| [String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))>** 
+Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;([Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) \| [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String))>** 
 
 ## getType
 
@@ -105,7 +105,7 @@ getType
 
 -   `obj`  
 
-Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the type of the object. date for date array etc
+Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the type of the object. date for date array etc
 
 ## memoize
 
@@ -115,9 +115,9 @@ computation when it receives the same params
 
 **Parameters**
 
--   `fn` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** the function to memoize
--   `deps` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** should returns an array with dependencies
--   `scope` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** the this object. default to this-generated function (optional, default `this`)
+-   `fn` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** the function to memoize
+-   `deps` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** should returns an array with dependencies
+-   `scope` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** the this object. default to this-generated function (optional, default `this`)
 
 **Examples**
 
@@ -145,9 +145,9 @@ Merge n objects
 
 **Parameters**
 
--   `N` **...[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** object to merge together
+-   `N` **...[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** object to merge together
 
-Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+Returns **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
 
 ## extend
 
@@ -155,10 +155,10 @@ extend: this function merge two objects in a new one with the properties of both
 
 **Parameters**
 
--   `o1` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** \-
--   `o2` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** \-
+-   `o1` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** \-
+-   `o2` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** \-
 
-Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** a brand new object results of the merging
+Returns **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** a brand new object results of the merging
 
 ## queryfy
 
@@ -167,7 +167,7 @@ A function to compose query string
 **Parameters**
 
 -   `_api` **Strinq** the endpoint
--   `query` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** a key value object: will be append to <api>?key=value&key2=value2
+-   `query` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** a key value object: will be append to <api>?key=value&key2=value2
 
 **Examples**
 
@@ -177,7 +177,7 @@ var url = queryfy(API, {postId:1});
 // url will be "http://jsonplaceholder.typicode.com/comments?postId=1"
 ```
 
-Returns **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the string composed
+Returns **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the string composed
 
 ## dequeryfy
 
@@ -194,7 +194,7 @@ var url = "http://jsonplaceholder.typicode.com/comments?postId=1"
 var obj = dequeryfy(url); //obj is {"postId":"1"}
 ```
 
-Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** the object with key-value pairs, empty if no querystring is present
+Returns **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** the object with key-value pairs, empty if no querystring is present
 
 ## addEvent
 
@@ -202,17 +202,17 @@ Cross browsing addEvent
 
 **Parameters**
 
--   `event` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the event name
--   `element` **[HTMLElement](https://developer.mozilla.org/docs/Web/HTML/Element)** HTMLElement
--   `callback` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** \-
+-   `event` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the event name
+-   `element` **[HTMLElement](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)** HTMLElement
+-   `callback` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** \-
 
-Returns **[HTMLElement](https://developer.mozilla.org/docs/Web/HTML/Element)** 
+Returns **[HTMLElement](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)** 
 
 ## isLocalStorageSupported
 
 Check if local storage is supported
 
-Returns **[Boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+Returns **[Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
 
 ## checkObject
 
@@ -220,8 +220,8 @@ Check if the object has the nested keys list
 
 **Parameters**
 
--   `object` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** the object to be checked
--   `keys` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** a string point separated or a list of string keys
+-   `object` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** the object to be checked
+-   `keys` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String))** a string point separated or a list of string keys
 -   `defaultReturn` **any**  (optional, default `null`)
 
 **Examples**
@@ -240,8 +240,8 @@ contained in the second one.
 
 **Parameters**
 
--   `first` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** 
--   `second` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** 
+-   `first` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String))** 
+-   `second` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String))** 
 
 **Examples**
 
@@ -250,7 +250,7 @@ arrayContains([1,2,3] [4,5,6,1,2,3]) // true
 Works even with array of objects and string
 ```
 
-Returns **[Boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+Returns **[Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
 
 ## setFingerPrint
 
@@ -258,11 +258,11 @@ setFingerPrint
 
 **Parameters**
 
--   `Config` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** the vhost configuration
--   `pony` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the token of the logged user
--   `returnUrl` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the url where to return once relogged
+-   `Config` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** the vhost configuration
+-   `pony` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the token of the logged user
+-   `returnUrl` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the url where to return once relogged
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)** 
+Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)** 
 
 ## contents_inapp
 
@@ -274,11 +274,11 @@ generatePony
 
 **Parameters**
 
--   `Config` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** the vhost configuration
--   `options` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** \- (optional, default `{return_url:''}`)
-    -   `options.return_url` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** \-
+-   `Config` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** the vhost configuration
+-   `options` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** \- (optional, default `{return_url:''}`)
+    -   `options.return_url` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** \-
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** the pony string
+Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)>** the pony string
 
 ## readCookies
 
@@ -286,6 +286,6 @@ Read the cookies in document.cookie string
 
 **Parameters**
 
--   `cookies` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the document.cookie string in this format key=val;
+-   `cookies` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the document.cookie string in this format key=val;
 
-Returns **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** the cookies as object key value pairs
+Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** the cookies as object key value pairs
