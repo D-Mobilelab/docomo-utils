@@ -1,5 +1,7 @@
 ### docomo-utils.js
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/D-Mobilelab/docomo-utils.svg)](https://greenkeeper.io/)
+
 A set of utilities function for docomo products. 
 Exports as Javascript Universal Module Definition (UMD)
 
